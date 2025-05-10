@@ -1,0 +1,89 @@
+# Molecular Biology Data Analysis Platform Configuration
+
+# Application settings
+app:
+  title: "Molecular Biology Data Analysis Platform"
+  version: "1.0.0"
+  description: "A Streamlit application for analyzing molecular biology datasets"
+  author: "Molecular Biology Analysis Team"
+  theme:
+    primary_color: "#4CAF50"
+    background_color: "#FFFFFF"
+    font: "sans-serif"
+
+# Data handling settings
+data:
+  accepted_formats:
+    - "csv"
+    - "tsv"
+  max_file_size_mb: 200
+  default_separator: ","
+  default_index_col: 0
+  max_preview_rows: 100
+
+# Preprocessing methods
+preprocessing_methods:
+  - "z_score"
+  - "minmax"
+  - "robust"
+  - "log"
+
+# Feature selection methods
+feature_selection_methods:
+  - "variance"
+  - "anova"
+  - "mutual_info"
+  - "pca"
+
+# Machine learning algorithms
+ml_algorithms:
+  - "SVM"
+  - "Random Forest"
+  - "KNN"
+  - "Neural Network"
+  - "Logistic Regression"
+
+# Default hyperparameter grids for ML algorithms
+hyperparameter_grids:
+  SVM:
+    C: [0.1, 1, 10]
+    kernel: ["linear", "rbf"]
+    gamma: ["scale", "auto"]
+  
+  Random Forest:
+    n_estimators: [50, 100, 200]
+    max_depth: [null, 10, 20]
+    min_samples_split: [2, 5, 10]
+  
+  KNN:
+    n_neighbors: [3, 5, 7, 9]
+    weights: ["uniform", "distance"]
+    p: [1, 2]  # Manhattan or Euclidean distance
+  
+  Neural Network:
+    hidden_layer_sizes: [[50], [100], [50, 50]]
+    activation: ["relu", "tanh"]
+    alpha: [0.0001, 0.001, 0.01]
+  
+  Logistic Regression:
+    C: [0.1, 1, 10]
+    penalty: ["l1", "l2"]
+    solver: ["liblinear", "saga"]
+
+# Visualization settings
+visualization:
+  default_figure_width: 10
+  default_figure_height: 8
+  colormap: "viridis"
+  max_heatmap_features: 50
+  pca_components: 2
+  
+# Output settings
+output:
+  results_dir: "results"
+  default_format: "latex"
+  available_formats:
+    - "latex"
+    - "html"
+    - "pdf"
+  file_prefix: "analysis"
